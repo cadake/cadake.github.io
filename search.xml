@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>testgit</title>
+      <link href="/2022/02/18/testgit/"/>
+      <url>/2022/02/18/testgit/</url>
+      
+        <content type="html"><![CDATA[<p>test of git</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> other </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hello</title>
+      <link href="/2022/02/18/hello/"/>
+      <url>/2022/02/18/hello/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Hello-blog"><a href="#Hello-blog" class="headerlink" title="Hello blog!"></a>Hello blog!</h1><p>博客搭建过程参考该文章：<a href="https://zhuanlan.zhihu.com/p/35668237">https://zhuanlan.zhihu.com/p/35668237</a></p><p>采用了matery主题，文章关于matery的部分结合matery的最新说明文档共同阅读</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> other </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
