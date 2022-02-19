@@ -250,17 +250,22 @@
     // var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
     // $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 
-    var bannerUrl = "/medias/banner/" + "0" + '.jpg';
+    // 时间间隔切换轮播图
+    // var bannerUrl = "/medias/banner/" + "0" + '.jpg';
+    // $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    // var imgs = ["0", "1", "2", "3", "4", "5", "6"];
+    // var x = 0;
+    // function f() {
+    //     x ++;
+    //     x = x % 7;
+    //     var bannerUrl = "/medias/banner/" + x + '.jpg';
+    //     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    // };
+    // setInterval("f()", 10000);
+
+    var bannerUrl = "/medias/banner/" + 'banner.jpg';
     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-    var imgs = ["0", "1", "2", "3", "4", "5", "6"];
-    var x = 0;
-    function f() {
-        x ++;
-        x = x % 7;
-        var bannerUrl = "/medias/banner/" + x + '.jpg';
-        $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-    };
-    setInterval("f()", 10000);
+
 </script>
 
 
