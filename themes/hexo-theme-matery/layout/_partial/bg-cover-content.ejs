@@ -38,8 +38,25 @@
 <% if (theme.banner.enable) { %>
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "<%- theme.jsDelivr.url %><%- url_for('/medias/banner/') %>" + new Date().getDay() + '.jpg';
+    // var bannerUrl = "<%- theme.jsDelivr.url %><%- url_for('/medias/banner/') %>" + new Date().getDay() + '.jpg';
+    // $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+
+    // 时间间隔切换轮播图
+    // var bannerUrl = "<%- theme.jsDelivr.url %><%- url_for('/medias/banner/') %>" + "0" + '.jpg';
+    // $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    // var imgs = ["0", "1", "2", "3", "4", "5", "6"];
+    // var x = 0;
+    // function f() {
+    //     x ++;
+    //     x = x % 7;
+    //     var bannerUrl = "<%- theme.jsDelivr.url %><%- url_for('/medias/banner/') %>" + x + '.jpg';
+    //     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    // };
+    // setInterval("f()", 10000);
+
+    var bannerUrl = "<%- theme.jsDelivr.url %><%- url_for('/medias/banner/') %>" + 'banner.jpg';
     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+
 </script>
 <% } else { %>
 <script>

@@ -1,8 +1,11 @@
 ---
 title: {{ title }}
 date: {{ date }}
-top: false
-cover: false
+author: cadake
+img:
+top: true
+hide: false
+cover: true
 password:
 toc: true
 mathjax: true
