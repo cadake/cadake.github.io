@@ -390,7 +390,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    975
                 </div>
                 
 
@@ -462,7 +462,7 @@
 <br>
 
 <h2 id="Model-Checking-Algorithm"><a href="#Model-Checking-Algorithm" class="headerlink" title="Model Checking Algorithm"></a><strong>Model Checking Algorithm</strong></h2><blockquote>
-<p>A way to infer new knowledge based on existing knowledfe.</p>
+<p>A way to infer new knowledge based on existing knowledge.</p>
 </blockquote>
 <ul>
 <li>To determine if KB ⊨ α (in other words, answering the question: “can we conclude that α is true based on our knowledge base”)<ul>
@@ -472,7 +472,15 @@
 </li>
 </ul>
 <p>简单地说，模型检查(Model Checking)就是遍历所有可能的模型，首先找到那些使得我们的知识库(KB)为真的模型，在这些模型中再检查$\alpha$是否为真。</p>
-<p>eg:<br>$$<br>P: It , is, a, Tuesday.    \newline<br>Q: It , is, raining. \newline<br>R: Harry, will, go, for, a, run. \newline<br>Knowledge, Base(KB): ((P \land \lnot Q) \rightarrow R) \land P \land \lnot Q \newline<br>Query: R \newline<br>$$</p>
+<p>eg:<br><img src="https://raw.githubusercontent.com/cadake/PicGo/main/blog/pictures/20220222165519.png"></p>
+<!-- $$
+P: It \, is\, a\, Tuesday.    \newline
+Q: It \, is\, raining. \newline
+R: Harry\, will\, go\, for\, a\, run. \newline
+Knowledge\, Base(KB): ((P \land \lnot Q) \rightarrow R) \land P \land \lnot Q \newline
+Query: R \newline
+$$ -->
+
 <p>首先枚举所有可能的模型</p>
 <table>
 <thead>
