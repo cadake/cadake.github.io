@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CS50.3 Lecture 1, Cadake">
-    <meta name="description" content="Humans reason based on existing knowledge and draw conclusions. The concept of representing knowledge and drawing conclusions from it is also used in AI.">
+    <meta name="keywords" content="CS50.3 Lecture 2, Cadake">
+    <meta name="description" content="Uncertainty引言一般而言，在现实中，AI只可能拥有解决问题的一部分信息，而其他的信息则是不确定的(uncertain)。因此，我们希望AI能够基于有限的的信息做出最合理，最可能(possible)的决策，即使并不完全准确。
+
+
+P">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CS50.3 Lecture 1 | Cadake</title>
+    <title>CS50.3 Lecture 2 | Cadake</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -226,12 +229,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CS50.3 Lecture 1</h1>
+                    <h1 class="description center-align post-title">CS50.3 Lecture 2</h1>
                 </div>
             </div>
         </div>
@@ -376,28 +379,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-22
+                    2022-02-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-23
+                    2022-02-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    979
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    8 分
                 </div>
                 
 
@@ -415,221 +418,312 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge"></a><strong>Knowledge</strong></h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h2><p>人类根据已有的知识进行推理并得出结论。这种基于已有知识诞生新知识的方法也被用于AI身上。</p>
+                <h1 id="Uncertainty"><a href="#Uncertainty" class="headerlink" title="Uncertainty"></a><strong>Uncertainty</strong></h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h2><p>一般而言，在现实中，AI只可能拥有解决问题的一部分信息，而其他的信息则是不确定的(uncertain)。因此，我们希望AI能够基于有限的的信息做出最合理，最可能(possible)的决策，即使并不完全准确。</p>
 <br>
 
-<p>Consider the following sentences:</p>
-<ol>
-<li>If it didn’t rain, Harry visited Hagrid today.</li>
-<li>Harry visited Hagrid or Dumbledore today, but not both.</li>
-<li>Harry visited Dumbledore today.</li>
-</ol>
-<p>基于这三句句子(sentence)，我们就可以回答”did it rain toay?”。即使这三句句子都没有直接告诉我们今天是否下雨，但我们依然可以通过逻辑推理得出答案。</p>
-<br>
-
-<h2 id="概念引入"><a href="#概念引入" class="headerlink" title="概念引入"></a><strong>概念引入</strong></h2><h3 id="Sentence"><a href="#Sentence" class="headerlink" title="Sentence"></a><strong>Sentence</strong></h3><blockquote>
-<p>A sentence is an assertion about the world in a knowledge representation language.</p>
-</blockquote>
-<p>例如，$P=true$是一个语句(sentence)</p>
-<p>$Q=false$也是一个语句</p>
-<p>一般而言，语句承载了知识，或者说，语句就是命题赋了值。</p>
-<br>
-
-<h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a><strong>Model</strong></h3><blockquote>
-<p>The model is an assignment of a truth value to every proposition. </p>
-</blockquote>
-<p>当“石头”一词出现在我们脑海中时，它先是一个概念，具有一些属性，比如形状，体积，质量，这些属性是未知的，不定的。而当我们看到现实中的石头时，至少在这一时刻，这块石头的形状，体积，质量是已知的，一定的，它就是“石头”这个概念在现实世界的一个模型(model)。</p>
-<p>比如，有命题P，Q，命题本身就是概念，它们的真假是未知的，不定的，而当命题的真假一旦确定，它们就成为了现实的模型。</p>
-<p>${P=true, Q=false}$是一个模型。</p>
-<p>${P=false, Q=false}$也是一个模型。</p>
-<br>
-
-<h3 id="Knowledge-Base-KB"><a href="#Knowledge-Base-KB" class="headerlink" title="Knowledge Base (KB)"></a><strong>Knowledge Base (KB)</strong></h3><blockquote>
-<p>The knowledge base is a set of sentences known by a knowledge-based agent.</p>
-</blockquote>
-<p>可以简单理解为KB就是已知条件。</p>
-<br>
-
-<h3 id="Entailment-⊨"><a href="#Entailment-⊨" class="headerlink" title="Entailment (⊨)"></a><strong>Entailment (⊨)</strong></h3><blockquote>
-<p>If α ⊨ β (α entails β), then in any world where α is true, β is true, too.</p>
+<h2 id="Probability"><a href="#Probability" class="headerlink" title="Probability"></a><strong>Probability</strong></h2><blockquote>
+<p>Uncertainty can be represented as a number of events and the likehood, or probability, of each of them happening.</p>
 </blockquote>
 <br>
 
-<h3 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a><strong>Inference</strong></h3><blockquote>
-<p>Inference is the process of deriving new sentences from old ones.</p>
+<h3 id="Unconditional-Probability"><a href="#Unconditional-Probability" class="headerlink" title="Unconditional Probability"></a><strong>Unconditional Probability</strong></h3><blockquote>
+<p>Unconditional probability is the degree of belief in a proposition in the absence of any other evidence. </p>
 </blockquote>
-<p>逻辑推理是常用的推理方法，也是本文主要的推理方法。</p>
 <br>
 
-<h2 id="Model-Checking-Algorithm"><a href="#Model-Checking-Algorithm" class="headerlink" title="Model Checking Algorithm"></a><strong>Model Checking Algorithm</strong></h2><blockquote>
-<p>A way to infer new knowledge based on existing knowledge.</p>
+<h3 id="Conditional-Probability"><a href="#Conditional-Probability" class="headerlink" title="Conditional Probability"></a><strong>Conditional Probability</strong></h3><blockquote>
+<p>Conditional probability is the degree of belief in a proposition given some evidence that has already been revealed.</p>
 </blockquote>
+<p><img src="https://s3.bmp.ovh/imgs/2022/02/f1d27cca1dc2ad2a.png"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/02/8551605e95e2b91a.png"></p>
+<br>
+
+<h3 id="Bayes’-Rule"><a href="#Bayes’-Rule" class="headerlink" title="Bayes’ Rule"></a><strong>Bayes’ Rule</strong></h3><p><img src="https://s3.bmp.ovh/imgs/2022/02/588a41b170378675.png"></p>
+<br>
+
+<h3 id="Joint-Probability"><a href="#Joint-Probability" class="headerlink" title="Joint Probability"></a><strong>Joint Probability</strong></h3><blockquote>
+<p>Joint probability is the likelihood of multiple events all occurring.</p>
+</blockquote>
+<br>
+
+<h2 id="Bayesian-Networks"><a href="#Bayesian-Networks" class="headerlink" title="Bayesian Networks"></a><strong>Bayesian Networks</strong></h2><blockquote>
+<p>A Bayesian network is a data structure that represents the dependencies among random variables. Bayesian networks have the following properties:</p>
 <ul>
-<li>To determine if KB ⊨ α (in other words, answering the question: “can we conclude that α is true based on our knowledge base”)<ul>
-<li>Enumerate all possible models.</li>
-<li>If in every model where KB is true, α is true as well, then KB entails α (KB ⊨ α).</li>
+<li>They are directed graphs.</li>
+<li>Each node on the graph represent a random variable.</li>
+<li>An arrow from X to Y represents that X is a parent of Y. That is, the probability distribution of Y depends on the value of X.</li>
+<li>Each node X has probability distribution P(X | Parents(X)).</li>
 </ul>
-</li>
-</ul>
-<p>简单地说，模型检查(Model Checking)就是遍历所有可能的模型，首先找到那些使得我们的知识库(KB)为真的模型，在这些模型中再检查$\alpha$是否为真。</p>
-<p>eg:<br><img src="https://ftp.bmp.ovh/imgs/2022/02/9bd5d6c661cc4611.png"></p>
-<!-- ![](https://raw.githubusercontent.com/cadake/PicGo/main/blog/pictures/20220222165519.png) -->
-<!-- $$
-P: It \, is\, a\, Tuesday.    \newline
-Q: It \, is\, raining. \newline
-R: Harry\, will\, go\, for\, a\, run. \newline
-Knowledge\, Base(KB): ((P \land \lnot Q) \rightarrow R) \land P \land \lnot Q \newline
-Query: R \newline
-$$ -->
+</blockquote>
+<br>
 
-<p>首先枚举所有可能的模型</p>
+<p><strong>eg:</strong></p>
+<p>前往约会的准时与否取决于很多因素，如图以贝叶斯网络的形式表达出这些因素（随机变量）间的依赖(dependency)关系。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/02/4f3b478cefb4bd4f.png"></p>
+<p>下雨(rain)是一个根节点，这意味着它不受网络中其他节点的影响。</p>
 <table>
 <thead>
 <tr>
-<th>P</th>
-<th>Q</th>
-<th>R</th>
-<th>KB</th>
+<th>rain</th>
+<th>probability</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>true</td>
-<td>true</td>
-<td>true</td>
-<td></td>
+<td>none</td>
+<td>0.7</td>
 </tr>
 <tr>
-<td>true</td>
-<td>true</td>
-<td>false</td>
-<td></td>
+<td>light</td>
+<td>0.2</td>
 </tr>
 <tr>
-<td>true</td>
-<td>false</td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>true</td>
-<td>false</td>
-<td>false</td>
-<td></td>
-</tr>
-<tr>
-<td>false</td>
-<td>true</td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>false</td>
-<td>true</td>
-<td>false</td>
-<td></td>
-</tr>
-<tr>
-<td>false</td>
-<td>false</td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>false</td>
-<td>false</td>
-<td>false</td>
-<td></td>
+<td>heavy</td>
+<td>0.1</td>
 </tr>
 </tbody></table>
-<p>所有使得KB为真的P，Q，R的组合的行的KB项为true，即需要满足P真，Q假，且有$(P \land \lnot Q) \rightarrow R$，于是填表得</p>
+<p>火车轨道维修(maintenance)有一个父节点rain，这说明maintenance的概率分布受rain的影响。</p>
 <table>
 <thead>
 <tr>
-<th>P</th>
-<th>Q</th>
-<th>R</th>
-<th>KB</th>
+<th>R \ M</th>
+<th>yes</th>
+<th>no</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>true</td>
-<td>true</td>
-<td>true</td>
-<td>false</td>
+<td><strong>none</strong></td>
+<td>0.4</td>
+<td>0.6</td>
 </tr>
 <tr>
-<td>true</td>
-<td>true</td>
-<td>false</td>
-<td>false</td>
+<td><strong>light</strong></td>
+<td>0.2</td>
+<td>0.8</td>
 </tr>
 <tr>
-<td>true</td>
-<td>false</td>
-<td>true</td>
-<td><b>true<b></b></b></td>
-</tr>
-<tr>
-<td>true</td>
-<td>false</td>
-<td>false</td>
-<td>false</td>
-</tr>
-<tr>
-<td>false</td>
-<td>true</td>
-<td>true</td>
-<td>false</td>
-</tr>
-<tr>
-<td>false</td>
-<td>true</td>
-<td>false</td>
-<td>false</td>
-</tr>
-<tr>
-<td>false</td>
-<td>false</td>
-<td>true</td>
-<td>false</td>
-</tr>
-<tr>
-<td>false</td>
-<td>false</td>
-<td>false</td>
-<td>false</td>
+<td><strong>heavy</strong></td>
+<td>0.1</td>
+<td>0.9</td>
 </tr>
 </tbody></table>
-<p>在这张表中，使得知识库为真的模型只有一个，并且在这个模型中R也为真。如果在所有使得知识库为真的模型中，R也都为真，那么有$KB ⊨ R$。</p>
-<p>于是在这个例子中，我们通过模型检查算法从已有的知识库KB推导出了新的知识R。</p>
+<p>火车(train)准时出发与否的概率分布由是否下雨(rain)和是否有轨道维修(maintenance)共同决定。</p>
+<table>
+<thead>
+<tr>
+<th>R&amp;M \ T</th>
+<th>on time</th>
+<th>delayed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none&amp;yes</td>
+<td>0.8</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>none&amp;no</td>
+<td>0.9</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>light&amp;yes</td>
+<td>0.6</td>
+<td>0.4</td>
+</tr>
+<tr>
+<td>light&amp;no</td>
+<td>0.7</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>heavy&amp;yes</td>
+<td>0.4</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>heavy&amp;no</td>
+<td>0.5</td>
+<td>0.5</td>
+</tr>
+</tbody></table>
+<p>约会(appointment)有很多祖先节点，这说明appointment的概率分布受很多因素的影响，但appointment的父节点只有一个，在贝叶斯网络中，我们只关心那些具有直接影响作用的依赖关系。</p>
+<table>
+<thead>
+<tr>
+<th>T \ A</th>
+<th>attend</th>
+<th>miss</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>on time</td>
+<td>0.9</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>delayed</td>
+<td>0.6</td>
+<td>0.4</td>
+</tr>
+</tbody></table>
+<p>现在，我想知道在一个小雨(light rain)的天气下，没有轨道维修(no maintenance)，火车(train delayed)延迟了，而我错过约会(miss appointment)的概率。</p>
+<p>$P(light, no, delayed, miss) = ?$</p>
+<p>$P(light)$</p>
+<p>$P(light)P(no|light)$</p>
+<p>$P(light)P(no|light)P(delayed|light,no)$</p>
+<p>$P(light)P(no|light)P(delayed|light,no)P(miss|delayed)$</p>
+<p>$P(light, no, delayed, miss)=0.2<em>0.8</em>0.3*0.4$</p>
 <br>
 
-<p><strong>模型检查(Model Checking)显然是一种低效的算法，因为它枚举了所有的可能性。</strong></p>
-<br>
-
-<h2 id="Knowledge-and-Search-Problems"><a href="#Knowledge-and-Search-Problems" class="headerlink" title="Knowledge and Search Problems"></a><strong>Knowledge and Search Problems</strong></h2><p>通过如下定义，推理过程可以转化为搜索问题：</p>
+<h2 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a><strong>Inference</strong></h2><p>基于概率，我们并不能推论出百分百正确的知识，但我们可以找出它们的概率分布。</p>
+<blockquote>
+<p>Inference has multiple properties.</p>
 <ul>
-<li><strong>Initial state:</strong> starting knowledge base</li>
-<li><strong>Actions:</strong> inference rules</li>
-<li><strong>Transition model:</strong> new knowledge base after inference</li>
-<li><strong>Goal test:</strong> checking whether the statement that we are trying to prove is in the KB</li>
-<li><strong>Path cost function:</strong> the number of steps in the proof</li>
+<li>Query X: the variable for which we want to compute the probability distribution.</li>
+<li>Evidence variables E: one or more variables that have been observed for event e.</li>
+<li>Hidden variables Y: variables that aren’t the query and also haven’t been observed. </li>
+<li>The goal: calculate P(X | e).</li>
 </ul>
-<p>搜索算法能够使我们通过推理规则从已有的知识库诞生新的知识。</p>
-<p>eg:</p>
-<ul>
-<li>To determine if KB ⊨ α:<ul>
-<li>Convert (KB ∧ ¬α) to Conjunctive Normal Form.</li>
-<li>Keep checking to see if we can use resolution to produce a new clause.</li>
-<li>If we ever produce the empty clause (equivalent to False), congratulations! We have arrived at a contradiction, thus proving that KB ⊨ α.</li>
-<li>However, if contradiction is not achieved and no more clauses can be inferred, there is no entailment.</li>
-</ul>
-</li>
-</ul>
-<br>
+</blockquote>
 <br>
 
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h2><p>原课程地址<br><a target="_blank" rel="noopener" href="https://cs50.harvard.edu/ai/2020/weeks/1/">https://cs50.harvard.edu/ai/2020/weeks/1/</a></p>
+<h3 id="Inference-by-Enumeration"><a href="#Inference-by-Enumeration" class="headerlink" title="Inference by Enumeration"></a><strong>Inference by Enumeration</strong></h3><blockquote>
+<p>Inference by enumeration is a process of finding the probability distribution of variable X given observed evidence e and some hidden variables Y.</p>
+</blockquote>
+<p>$P(X|e)=P(X,e)/P(e)=\alpha * P(X,e) = \alpha \sum_{y}P(X,e,y)$</p>
+<blockquote>
+<p>In this equation, X stand for the query variable, e for the observed evidence, y for all the values of the hidden variables.</p>
+</blockquote>
+<p><strong>eg:</strong></p>
+<p>我想知道在小雨(light rain)天气和没有轨道维修(no maintenance)的情况，下我准时前往约会的概率分布。</p>
+<p>$P(appointment|light, no) = \alpha P(appointment, light, no)$</p>
+<p>$P(appointment, light, no) = P(appointment, light, no, delayed) + P(appointment, light, no, on time)$</p>
+<p>然而，当网络中的变量节点非常多时，枚举推理(enumeration inference)并不是一种高效的方法。另一种想法是，在牺牲一定准确度的情况下，我们是否可以更加快速地得到一个相对正确的结果。</p>
+<br>
+
+<h3 id="Sampling"><a href="#Sampling" class="headerlink" title="Sampling"></a><strong>Sampling</strong></h3><blockquote>
+<p>Sampling is one technique of approximate inference. In sampling, each variable is sampled for a value according to its probability distribution. </p>
+</blockquote>
+<p><strong>eg:</strong><br>在上述appointment的例子中，我们使用抽样来获得大量样本。</p>
+<p>从根节点rain开始。根据rain的概率分布，通过使用随机数，我们获得rain的一个值，比如none。</p>
+<table>
+<thead>
+<tr>
+<th>rain</th>
+<th>probability</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>0.7</td>
+</tr>
+<tr>
+<td>light</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>heavy</td>
+<td>0.1</td>
+</tr>
+</tbody></table>
+<p>接下来根据maintenance在rain为none的取值下的条件概率分布，通过相同的方式，获得maintenance的一个样本值，比如yes。</p>
+<table>
+<thead>
+<tr>
+<th>R \ M</th>
+<th>yes</th>
+<th>no</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>none</strong></td>
+<td>0.4</td>
+<td>0.6</td>
+</tr>
+</tbody></table>
+<p>然后根据train在rain为none和maintenance为yes的取值下的条件概率分布，通过相同的方式，获得train的一个样本值，比如on time。</p>
+<table>
+<thead>
+<tr>
+<th>R&amp;M \ T</th>
+<th>on time</th>
+<th>delayed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none&amp;yes</td>
+<td>0.8</td>
+<td>0.2</td>
+</tr>
+</tbody></table>
+<p>最后根据appointment在train为on time的取值下的条件概率，通过相同的方式，获得appointment的一个样本值，比如attend。</p>
+<table>
+<thead>
+<tr>
+<th>T \ A</th>
+<th>attend</th>
+<th>miss</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>on time</td>
+<td>0.9</td>
+<td>0.1</td>
+</tr>
+</tbody></table>
+<p>最后，我们得到了一个样本(none, yes, on time, attend)。</p>
+<p>通过计算机随机抽样，我们可以快速获得大量样本。大数定律告诉我们，当样本容量足够大时，$f \approx p$。我们可以使用这些样本估算概率分布。</p>
+<p>然而，如果我想通过抽样(sampling)求一个条件概率，而这个条件事件发生的概率很低，那就意味着在大量的抽样中只有很少的样本是我们需要的。为此，我们浪费了大量的无关样本，并且为了保证估算准确性，我们又不得不抽取更多样本来使我们的目标样本数量具有一定规模。</p>
+<br>
+
+<h3 id="Likelihood-Weighting"><a href="#Likelihood-Weighting" class="headerlink" title="Likelihood Weighting"></a><strong>Likelihood Weighting</strong></h3><blockquote>
+<p>Likelihood weighting uses the following steps:</p>
+<ul>
+<li>Start by fixing the values for evidence variables.</li>
+<li>Sample the non-evidence variables using conditional probabilities in the Bayesian network.</li>
+<li>Weight each sample by its likelihood: the probability of all the evidence occurring.</li>
+</ul>
+</blockquote>
+<p><strong>eg:</strong></p>
+<p>在上述sampling的例子中，如果我想知道在火车没有延误(train on time)的情况下appointment的概率分布</p>
+<br>
+
+<h2 id="Markov-Models"><a href="#Markov-Models" class="headerlink" title="Markov Models"></a><strong>Markov Models</strong></h2><blockquote>
+<p>So far, we have looked at questions of probability given some information that we observed. In this kind of paradigm, the dimension of time is not represented in any way. However, many tasks do rely on the dimension of time, such as prediction. To represent the variable of time we will create a new variable, X, and change it based on the event of interest, such that Xₜ is the current event, Xₜ₊₁ is the next event, and so on. To be able to predict events in the future, we will use Markov Models.</p>
+</blockquote>
+<br>
+
+<h3 id="The-Markov-Assumption"><a href="#The-Markov-Assumption" class="headerlink" title="The Markov Assumption"></a><strong>The Markov Assumption</strong></h3><blockquote>
+<p>The Markov assumption is an assumption that the current state depends on only a finite fixed number of previous states. </p>
+</blockquote>
+<br>
+
+<h3 id="Markov-Chain"><a href="#Markov-Chain" class="headerlink" title="Markov Chain"></a><strong>Markov Chain</strong></h3><blockquote>
+<p>A Markov chain is a sequence of random variables where the distribution of each variable follows the Markov assumption. That is, each event in the chain occurs based on the probability of the event before it.</p>
+</blockquote>
+<p><strong>a transition model:</strong></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/02/1ee66d10c5ae5518.png"></p>
+<p>在这个例子中，明天的天气的概率分布受到今天的天气的影响。</p>
+<p>我们可以使用马尔可夫假设模拟得到马尔可夫链，从而预测天气。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/02/684ac831f4061331.png"></p>
+<br>
+
+<h3 id="Hidden-Markov-Models"><a href="#Hidden-Markov-Models" class="headerlink" title="Hidden Markov Models"></a><strong>Hidden Markov Models</strong></h3><blockquote>
+<p>A hidden Markov model is a type of a Markov model for a system with hidden states that generate some observed event. This means that sometimes, the AI has some measurement of the world but no access to the precise state of the world. In these cases, the state of the world is called the hidden state and whatever data the AI has access to are the observations.</p>
+</blockquote>
+<p>例如，现在有一个室内的门禁AI，它并不能直接知道天气的状况，但它装有一个摄像头，可以判断经过的人是否带伞，从而推断室外的天气状况。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/02/57a8324c8f25561b.png"></p>
+<br>
+
+<h3 id="Sensor-Markov-Assumption"><a href="#Sensor-Markov-Assumption" class="headerlink" title="Sensor Markov Assumption"></a><strong>Sensor Markov Assumption</strong></h3><blockquote>
+<p>The assumption that the evidence variable depends only on the corresponding state. </p>
+</blockquote>
+<p>使用隐马尔可夫模型，我们可以得到双层的马尔可夫链。下层代表我们的观察信息，上层代表导致这些观察现象背后的事件。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/02/ef28679b6966f37e.png"></p>
+<p>而在实际应用中，我们通常只有下层的一系列观察信息，我们所要做的就是根据隐马尔可夫模型推断得到上层链，也就是现象背后的本质。</p>
+<br>
+
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h2><p>原课程地址<br><a target="_blank" rel="noopener" href="https://cs50.harvard.edu/ai/2020/weeks/2/">https://cs50.harvard.edu/ai/2020/weeks/2/</a></p>
 
                 
             </div>
@@ -656,7 +750,7 @@ $$ -->
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cadake.github.io/2022/02/22/cs50-3-lecture-1/">http://cadake.github.io/2022/02/22/cs50-3-lecture-1/</a>
+                    <a href="http://cadake.github.io/2022/02/25/cs50-3-lecture-2/">http://cadake.github.io/2022/02/25/cs50-3-lecture-2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -747,9 +841,10 @@ $$ -->
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/02/25/cs50-3-lecture-2/">
                     <div class="card-image">
@@ -767,9 +862,63 @@ $$ -->
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-25
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/course/" class="post-category">
+                                    课程
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/AI/">
+                        <span class="chip bg-color">AI</span>
+                    </a>
+                    
+                    <a href="/tags/algorithm/">
+                        <span class="chip bg-color">algorithm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/02/22/cs50-3-lecture-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="CS50.3 Lecture 1">
+                        
+                        <span class="card-title">CS50.3 Lecture 1</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Humans reason based on existing knowledge and draw conclusions. The concept of representing knowledge and drawing conclusions from it is also used in AI.
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -793,43 +942,6 @@ $$ -->
                         <span class="chip bg-color">algorithm</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/02/21/testpic/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="testpic">
-                        
-                        <span class="card-title">testpic</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-21
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            cadake
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>
