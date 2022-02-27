@@ -870,6 +870,11 @@
   dependencies:
     "sprintf-js" "^1.0.3"
 
+"hexo-image-link@^0.0.3":
+  "integrity" "sha512-wyCCLzNnjzZCefo102Zrc3sGJIJSvK5TJTgv0pLEb8GRuHunN1De5h57qpbzVF2id4oQmBSIiugGmslG8U9VsA=="
+  "resolved" "https://registry.npmjs.org/hexo-image-link/-/hexo-image-link-0.0.3.tgz"
+  "version" "0.0.3"
+
 "hexo-log@^2.0.0":
   "integrity" "sha512-U7zdDae74pXcyhQEyNmpJdq3UI6zWKxQ7/zLoMr/d3CBRdIfB5yO8DWqKUnewfibYv0gODyTWUIhxQDWuwloow=="
   "resolved" "https://registry.npmjs.org/hexo-log/-/hexo-log-2.0.0.tgz"
